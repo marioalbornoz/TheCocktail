@@ -3,13 +3,13 @@ import { CategoriasContext } from '../context/CategoriasContext';
 
 export const Formulario = () => {
 
-    const { hola } = useContext(CategoriasContext);
-    alert(hola);
+    const { categorias } = useContext(CategoriasContext);
+    console.log(categorias);    
 
     return (
       <form className="col-12">
         <fieldset className="text-center">
-          <legend>Busca bebida por categoria o ingrediente</legend>
+          <legend>Busca tu bebida por categoria o ingrediente</legend>
         </fieldset>
         <div className="row mt-4">
           <div className="col-md-4">
@@ -17,7 +17,7 @@ export const Formulario = () => {
               name="nombre"
               className="form-control"
               type="text"
-              placeholder="Buscar por ingresiente"
+              placeholder="Buscar por ingrediente"
               autoComplete="off"
             />
           </div>
