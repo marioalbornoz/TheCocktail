@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { CategoriasContext } from '../context/CategoriasContext';
 import { RecetasContext } from '../context/RecetasContext';
+import Listarecetas from './Listarecetas';
 
 export const Formulario = () => {
 
@@ -11,7 +12,7 @@ export const Formulario = () => {
 
     const { categorias } = useContext(CategoriasContext); 
 
-    const { buscarRecetas } = useContext(RecetasContext);
+    const { buscarRecetas, guardarConsulta, recetas } = useContext(RecetasContext);
     
     // funcion para leer el contenido
     const obtenerDatosReceta = (e) => {
@@ -26,6 +27,8 @@ export const Formulario = () => {
         onSubmit={(e) => {
           e.preventDefault();
           buscarRecetas(busqueda);
+          guardarConsulta(true);
+          
         }}
         className="col-12"
       >
@@ -67,6 +70,11 @@ export const Formulario = () => {
               value="Buscar recetas"
             />
           </div>
+        </div>
+        <div className="row mt-4">
+            <div className="col-12">
+                <Listarecetas recetas={recetas} />
+            </div>
         </div>
       </form>
     );
