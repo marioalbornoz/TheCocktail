@@ -7,6 +7,7 @@ export const Formulario = () => {
         nombre:"",
         categoria:""
     })
+    const [error, guardarError] = useState(false);
 
     const { categorias } = useContext(CategoriasContext); 
 
@@ -18,12 +19,16 @@ export const Formulario = () => {
           ...busqueda,
           [e.target.name]: e.target.value,
         });
+        guardarError(false);
     }
 
     return (
       <form
         onSubmit={(e) => {
           e.preventDefault();
+          if(busqueda.nombre ==='' || busqueda.categoria ===''){
+              guardarError(true);
+          }
           buscarRecetas(busqueda);
           guardarConsulta(true);
           
@@ -33,6 +38,7 @@ export const Formulario = () => {
         <fieldset className="text-center">
           <legend>Busca tu bebida por categoria o ingrediente</legend>
         </fieldset>
+        { error ? <div className="alert alert-warning text-center">Todos los campos son obligatorios</div> : null}
         <div className="row mt-4">
           <div className="col-md-4">
             <input
@@ -41,6 +47,7 @@ export const Formulario = () => {
               type="text"
               placeholder="Buscar por ingrediente"
               onChange={obtenerDatosReceta}
+              autoComplete="off"
             />
           </div>
           <div className="col-md-4">
