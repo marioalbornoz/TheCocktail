@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useContext, useMemo } from 'react'
+import PropTypes from 'prop-types'
+import { ModalContext } from '../context/ModalContext';
 
 export const Receta = ({receta}) => {
+
+    const {guardarIdrecetas} = useContext(ModalContext);
     return (
       <div className="col-md-4 mb-4">
         <div className="card">
@@ -10,9 +14,15 @@ export const Receta = ({receta}) => {
           <button
             className="btn btn-block btn-primary"
             type="button"
+            onClick={ ()=>{
+                guardarIdrecetas(receta.idDrink)
+            }}
             >Ver receta</button>
           </div>
         </div>
       </div>
     );
+}
+Receta.propTypes = {
+    receta: PropTypes.object.isRequired
 }

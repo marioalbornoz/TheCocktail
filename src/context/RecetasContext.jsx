@@ -14,12 +14,12 @@ const RecetasProvider = (props) => {
     const {nombre, categoria} = busqueda;
     useEffect(()=>{
         if(consulta){
-            const obtenerRecetas = async() =>{
+            const obtenerListado = async() =>{
                 const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${nombre}&c=${categoria}`
                 const receta = await axios(url)
                 guardarRecetas(receta.data.drinks);
             }
-            obtenerRecetas();
+            obtenerListado();
         }
     }, [nombre, categoria])
     return (

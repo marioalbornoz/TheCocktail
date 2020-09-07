@@ -8,16 +8,11 @@ const Listarecetas = () => {
     const { recetas } = useContext(RecetasContext);
     return (
       <div className="row mt-5">
-        {/* <h1>Listado</h1> */}
-        {recetas.map((receta) => (
+        {recetas ? (recetas.map((receta) => (
           <Receta key={receta.idDrink} receta={receta}/>
-        ))}
+        ))) : null }
       </div>
     );
 }
-
-// Listarecetas.propTypes = {
-//     recetas: PropTypes.array.isRequired
-// }
 
 export default Listarecetas
