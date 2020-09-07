@@ -24,7 +24,7 @@ const RecetasProvider = (props) => {
                   //ocultar el spinner
                   guardarCargando(false);
                   guardarRecetas(receta.data.drinks);
-                },1000);
+                },3000);
                 
             }
             obtenerListado();
