@@ -1,6 +1,6 @@
 import React,{createContext, useEffect, useState} from 'react'
 import axios from 'axios';
-import { Receta } from '../components/Receta';
+// import { Receta } from '../components/Receta';
 
 
 // crear context
@@ -10,7 +10,7 @@ const ModalProvider = (props) => {
 
     const [idrecetas, guardarIdrecetas] = useState(null);
     const [detalles, guardarDetalles] = useState();
-
+    console.log(detalles);
     useEffect( ()=>{
         if(!idrecetas) return;
         const obtenerReceta = async() => {

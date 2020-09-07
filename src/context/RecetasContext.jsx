@@ -21,7 +21,7 @@ const RecetasProvider = (props) => {
             }
             obtenerListado();
         }
-    }, [nombre, categoria])
+    }, [nombre, categoria, consulta])
     return (
       <RecetasContext.Provider value={{ buscarRecetas, guardarConsulta, recetas }}>
         {props.children}
