@@ -30,7 +30,7 @@ const ModalProvider = (props) => {
         >
             {props.children}
         </ModalContext.Provider>
-    );
+    ); 
 }
  
 export default ModalProvider;
